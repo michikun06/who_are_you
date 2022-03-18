@@ -1,0 +1,175 @@
+/* mixins, variables, etc. */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+body {
+  padding-top: 60px;
+  background-color: rgb(151, 172, 170);
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/*== ボタン共通設定 */
+.btn02 {
+  /*背景の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display: inline-block;
+  width: 100%;
+  max-width: 250px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  outline: none;
+}
+
+/*ボタン内側の設定*/
+.btn02 span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+  /* 重なりを3Dで表示 */
+  transform-style: preserve-3d;
+  /* アニメーションの設定 数字が少なくなるほど早く回転 */
+  transition: 0.5s;
+}
+
+/*== くるっと回転（奥に） */
+
+/* 回転前 */
+.rotateback span:nth-child(1) {
+  background: #fff;
+  color: #000;
+  transform: rotateX(0deg); /*はじめは回転なし*/
+  transform-origin: 0 50% -25px; /* 回転する起点 */
+}
+
+/*hoverをした後の形状*/
+.rotateback:hover span:nth-child(1) {
+  transform: rotateX(90deg); /* X軸に90度回転 */
+}
+
+/* 回転後 */
+.rotateback span:nth-child(2) {
+  background: #000;
+  color: #fff;
+  transform: rotateX(-90deg); /*はじめはX軸に-90度回転*/
+  transform-origin: 0 50% -25px; /* 回転する起点 */
+}
+
+/*hoverをした後の形状*/
+.rotateback:hover span:nth-child(2) {
+  transform: rotateX(0deg); /* X軸に0度回転 */
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+.footer_company {
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
