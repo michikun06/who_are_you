@@ -136,6 +136,21 @@ p {
   transform: rotateX(0deg); /* X軸に0度回転 */
 }
 
+.dropdown-menu {
+  background-color: #222222;
+  li a {
+    color: #fff;
+    text-align: center;
+  }
+  li form {
+    text-align: center;
+  }
+  li button {
+    color: #fff;
+    background-color: transparent;
+  }
+}
+
 /* footer */
 
 footer {
